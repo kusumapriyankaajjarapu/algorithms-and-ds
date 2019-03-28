@@ -1,0 +1,33 @@
+import java.util.*;
+
+public class SpecialRods{
+
+    //Method to find count of Special Rods
+    public int findSpecialRods(int range){
+        int count = 0;
+        int length = 3;     //minimum length of the rod that requires type-2 cutting
+        while(length <= range)
+        {
+            count++;
+            length = length * 2 + 1;    //The smaller length of the piece obtained by cutting the odd length piece must be odd 
+                                        //  to become the next length of the rod that requires type-2 cutting in every step 
+        }
+        return count;
+    }
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int test_cases = scan.nextInt();
+        while(test_cases != 0)
+        {
+            int rod_length = scan.nextInt();
+            SpecialRods sr = new SpecialRods();
+            int total = sr.findSpecialRods(rod_length);
+            System.out.println(total);
+            
+            test_cases--;
+        }
+    }
+}
