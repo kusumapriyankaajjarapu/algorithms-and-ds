@@ -1,0 +1,46 @@
+import java.util.*;
+public class SparseArrays {
+
+    //method to calculate frequency of matching strings
+    static int[] matchingStrings(String[] s,String[] q){
+        
+        int[] sol = new int[q.length];
+        for(int i = 0;i < q.length;i ++)
+        {
+            for(int j = 0;j <s.length;j++)
+            {
+                if(q[i].equals(s[j]))   //if the query element matches the input element
+                {
+                    sol[i]++;   //update the frequency
+                }
+            }
+        }
+        
+        return sol;
+    }
+    
+    public static void main(String[] args) {
+        
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        String input[] = new String[n];
+        for(int i = 0;i <n;i++)
+        {
+            input[i] = scan.next();
+        }
+        int q =scan.nextInt();
+        String queries[] = new String[q];
+        for(int i = 0;i <q;i++)
+        {
+            queries[i] = scan.next();
+        }
+        int result[] = new int[q];
+        result = matchingStrings(input,queries);
+        for(int i = 0;i <q;i++)
+        {
+            System.out.println(result[i]);
+        }
+        
+    }
+    
+}
